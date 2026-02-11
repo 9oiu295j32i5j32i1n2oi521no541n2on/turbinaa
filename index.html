@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-title" content="AlphaStudio" />
+    <meta
+      name="description"
+      content="Fast cloud hosting for developers & enterprises. Deploy your applications in seconds with cutting-edge cloud infrastructure."
+    />
+    <title>AlphaStudio - Fast Cloud Hosting</title>
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link rel="icon" type="image/png" href="/elysia.png" />
+    <link rel="apple-touch-icon" href="/elysia.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="module" crossorigin src="/assets/index-_8EoN9P-.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-1M44sSzG.css">
+    <script>
+      // Function to replace content, rebrand and remove sections
+      function modifySite() {
+        const observer = new MutationObserver((mutations) => {
+          // Replace H1
+          const h1 = document.querySelector('h1');
+          if (h1 && h1.textContent.includes('Fast cloud hosting')) {
+            h1.textContent = 'All-in-one Platform to Change Your Business Design';
+          }
+          
+          // Replace Hero Paragraph
+          const p = document.querySelector('p.text-center.max-w-\\[340px\\]');
+          if (p && p.textContent.includes('Deploy in seconds')) {
+            p.textContent = 'AlphaStudio is platform that offers many services such as Graphics Design, Web Development and more';
+          }
+
+          // Global Rebrand: Replace all occurrences of Elysia Cloud
+          const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+          let node;
+          while(node = walker.nextNode()) {
+            if (node.textContent.toLowerCase().includes('elysia cloud')) {
+              node.textContent = node.textContent.replace(/Elysia Cloud/gi, 'AlphaStudio');
+            }
+          }
+
+          // Remove Enterprise Features section
+          const enterpriseHeader = Array.from(document.querySelectorAll('p')).find(el => el.textContent === 'Enterprise Features');
+          if (enterpriseHeader) {
+            const section = enterpriseHeader.closest('section');
+            if (section) {
+              section.remove();
+            }
+          }
+
+          // Remove AMD Ryzen section
+          const amdHeader = Array.from(document.querySelectorAll('div')).find(el => el.textContent === 'AMD Ryzen™ 9950X');
+          if (amdHeader) {
+            const section = amdHeader.closest('section');
+            if (section) {
+              section.remove();
+            }
+          }
+
+          // Remove pricing blocks
+          document.querySelectorAll('span.text-white.font-medium.text-xl').forEach(el => {
+            if (el.textContent.includes('$')) {
+              const priceContainer = el.closest('.flex.items-center.justify-between');
+              if (priceContainer) {
+                priceContainer.style.display = 'none';
+              }
+            }
+          });
+
+          // Replace Game Servers with Graphics Design
+          const gameServersHeader = Array.from(document.querySelectorAll('h3')).find(el => el.textContent === 'Game Servers');
+          if (gameServersHeader) {
+            gameServersHeader.textContent = 'Graphics Design';
+            const description = gameServersHeader.nextElementSibling;
+            if (description && description.tagName === 'P') {
+              description.textContent = 'Professional visual identities and custom graphic assets for your brand. High-quality designs tailored to your specific creative needs.';
+            }
+          }
+
+          // Replace Web Hosting with Web Development
+          const webHostingHeader = Array.from(document.querySelectorAll('h3')).find(el => el.textContent === 'Web Hosting');
+          if (webHostingHeader) {
+            webHostingHeader.textContent = 'Web Development';
+            const description = webHostingHeader.nextElementSibling;
+            if (description && description.tagName === 'P') {
+               description.textContent = 'Custom websites and web applications built with modern technologies. We deliver responsive, fast, and secure digital solutions for your business.';
+             }
+           }
+
+           // Replace VDS Hosting with Animations
+           const vdsHostingHeader = Array.from(document.querySelectorAll('h3')).find(el => el.textContent === 'VDS Hosting');
+           if (vdsHostingHeader) {
+             vdsHostingHeader.textContent = 'Animations';
+             const description = vdsHostingHeader.nextElementSibling;
+             if (description && description.tagName === 'P') {
+                description.textContent = 'Stunning 2D and 3D animations that bring your ideas to life. From motion graphics to character animation, we create engaging visual stories.';
+              }
+            }
+
+            // Replace footer/service tagline
+             const tagline = Array.from(document.querySelectorAll('p')).find(el => el.textContent.includes('From game servers to enterprise VDS'));
+             if (tagline) {
+               tagline.textContent = 'From creative brand identities to advanced digital solutions, we bring your vision to life.';
+             }
+
+             // Replace status text
+              const statusTag = Array.from(document.querySelectorAll('a.accent-tag')).find(el => el.textContent.includes('All Systems Operational') || el.textContent.includes('Zvanicno otvoren sajt'));
+              if (statusTag) {
+                 statusTag.innerHTML = statusTag.innerHTML.replace(/All Systems Operational|Zvanicno otvoren sajt/, 'Official Website Launch');
+               }
+
+               // Replace "Deploy your first server" CTA text
+               const ctaText = Array.from(document.querySelectorAll('p')).find(el => el.textContent.includes('Deploy your first server in minutes'));
+               if (ctaText) {
+                  ctaText.textContent = 'Start your creative journey today. Transform your brand with our expert design and development.';
+                }
+
+                // Replace Footer/Company Info and Links
+                const footerText = Array.from(document.querySelectorAll('p')).find(el => el.textContent.includes('Fast cloud hosting for developers'));
+                if (footerText) {
+                  footerText.textContent = 'All-in-one Platform to Change Your Business Design.';
+                }
+
+                // Mapping of old links to new links
+                const linkMap = {
+                  'Web Hosting': 'Web Development',
+                  'VDS Hosting': 'Animations',
+                  'Game Servers': 'Graphics Design',
+                  'Minecraft Hosting': 'Logo Design',
+                  'Hytale Hosting': 'UI/UX Design',
+                  'Terraria Hosting': 'Social Media'
+                };
+
+                document.querySelectorAll('a').forEach(link => {
+                  const text = link.textContent.trim();
+                  if (linkMap[text]) {
+                     link.textContent = linkMap[text];
+                   }
+                 });
+
+                 // Replace Performance Features with Creative Features
+                 const featuresMap = {
+                   'High performance servers': 'Pixel Perfect Designs',
+                   'AMD Ryzen 9950X with NVMe SSD storage': 'Meticulously crafted visuals tailored to your unique brand identity.',
+                   'Game server hosting': 'Modern Web Solutions',
+                   'Minecraft, Terraria & more with low latency': 'High-performance websites built with the latest cutting-edge technologies.',
+                   'Enterprise security': 'Brand Strategy',
+                   '12 Tbps enterprise-grade security powered by Cosmic Guard Enterprise': 'Strategic positioning to make your business stand out in the global market.',
+                   'Global network': 'Creative Animations',
+                   'Low latency with 10 Gbps connectivity': 'Dynamic motion graphics that engage and inspire your target audience.'
+                 };
+
+                 document.querySelectorAll('h3, p, div').forEach(el => {
+                   const text = el.textContent.trim();
+                   if (featuresMap[text]) {
+                     el.textContent = featuresMap[text];
+                   }
+                 });
+               });
+               observer.observe(document.body, { childList: true, subtree: true });
+      }
+      window.addEventListener('DOMContentLoaded', modifySite);
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="initial-loader" class="initial-loader" aria-live="polite">
+        <div class="initial-loader__spinner" aria-label="Loading"></div>
+      </div>
+    </div>
+  
+</body>
+</html>
